@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop",
+    "develop": "gatsby develop",
     "ncu": "ncu",
     "now-build": "npm run build",
     "now-dev": "gatsby develop -p $PORT",
