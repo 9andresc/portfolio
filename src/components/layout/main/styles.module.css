@@ -1,6 +1,10 @@
 .main {
   width: 100%;
   min-height: calc(100vh - 8rem);
+
+  background-color: var(--mainBackgroundColor);
+
+  transition: background-color 0.25s;
 }
 
 .wrapper {

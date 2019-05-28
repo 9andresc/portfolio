@@ -3,6 +3,8 @@
   height: 4rem;
 
   background-color: var(--headerBackgroundColor);
+
+  transition: background-color 0.25s;
 }
 
 .wrapper {
