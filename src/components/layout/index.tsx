@@ -1,9 +1,11 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import 'lib/i18n';
 import { ThemeProvider } from 'utils/theming';
 
+import { Footer } from './footer';
+import { Header } from './header';
+import { Main } from './main';
 import styles from './styles.module.css';
 
 interface LayoutProps {
@@ -11,15 +13,15 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps): JSX.Element {
-  const { t } = useTranslation();
-
   return (
     <ThemeProvider>
-      <header className={styles.header}>{t('header.title')}</header>
+      <div className={styles.container}>
+        <Header />
 
-      <main>{children}</main>
+        <Main>{children}</Main>
 
-      <footer>footer</footer>
+        <Footer />
+      </div>
     </ThemeProvider>
   );
 }

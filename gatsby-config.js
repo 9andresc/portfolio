@@ -43,10 +43,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `9andresc-portfolio`,
-        short_name: `portfolio`,
+        name: `9andresc's Portfolio`,
+        short_name: `9andresc`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#110a18`,
         theme_color: `#37323e`,
         display: `minimal-ui`,
         icon: `src/assets/images/icon.png`, // This path is relative to the root of the site.

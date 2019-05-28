@@ -2,6 +2,7 @@
 const autoprefixer = require('autoprefixer');
 const customProperties = require('postcss-custom-properties');
 const atImport = require('postcss-import');
+const nesting = require('postcss-nesting');
 const presetEnv = require('postcss-preset-env');
 
 module.exports = {
@@ -11,6 +12,7 @@ module.exports = {
     }),
     customProperties({}),
     atImport({}),
+    nesting({}),
     presetEnv({ stage: 0 }),
   ],
 };

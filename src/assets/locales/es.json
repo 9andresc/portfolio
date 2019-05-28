@@ -1,5 +1,10 @@
 {
-  "header.title": "Cabecera",
+  "footer.gitHubTitle": "Logo de GitHub",
+  "footer.linkedInTitle": "Logo de LinkedIn",
+  "footer.twitterTitle": "Logo de Twitter",
+
+  "header.logoTitle": "Logo de 9andresc",
+  "header.resumeLink": "Mi currículum",
 
   "home.title": "Inicio"
 }

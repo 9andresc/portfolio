@@ -2,7 +2,7 @@ import React from 'react';
 
 import { tuplify } from 'utils';
 
-const palette = {
+export const palette = {
   lightColor: '#615b69',
   mainColor: '#37323e', // Onyx
   darkColor: '#110a18',
@@ -15,13 +15,19 @@ const palette = {
 export const themes = {
   dark: {
     ...palette,
+
     backgroundColor: palette.darkColor,
     textColor: palette.whiteColor,
+
+    headerBackgroundColor: palette.lightColor,
   },
   light: {
     ...palette,
+
     backgroundColor: palette.whiteColor,
     textColor: palette.darkColor,
+
+    headerBackgroundColor: palette.mainColor,
   },
 };
 
