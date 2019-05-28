@@ -8,6 +8,7 @@ export const palette = {
   darkColor: '#110a18',
 
   whiteColor: '#ffffff',
+  greyColor: '#fafafa',
 
   dangerColor: '#a61c3c', // Deep Carmine
 };
@@ -20,6 +21,10 @@ export const themes = {
     textColor: palette.whiteColor,
 
     headerBackgroundColor: palette.lightColor,
+
+    mainBackgroundColor: palette.mainColor,
+
+    footerBackgroundColor: palette.lightColor,
   },
   light: {
     ...palette,
@@ -27,7 +32,11 @@ export const themes = {
     backgroundColor: palette.whiteColor,
     textColor: palette.darkColor,
 
-    headerBackgroundColor: palette.mainColor,
+    headerBackgroundColor: palette.whiteColor,
+
+    mainBackgroundColor: palette.greyColor,
+
+    footerBackgroundColor: palette.whiteColor,
   },
 };
 
