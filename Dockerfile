@@ -1,6 +1,9 @@
 # base image
 FROM node:12-alpine
 
+# install git
+RUN apk add --no-cache git
+
 # set working directory
 WORKDIR /app
 
@@ -12,4 +15,4 @@ COPY package.json /app/package.json
 RUN npm install --silent
 
 # start app
-# CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev"]
