@@ -1,5 +1,7 @@
 # Portfolio
 
+[![CircleCI](https://circleci.com/gh/9andresc/portfolio.svg?style=svg)](https://circleci.com/gh/9andresc/portfolio)
+
 The codebase of my personal portfolio web page.
 
 ## Prerequisites
