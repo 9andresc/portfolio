@@ -13,12 +13,17 @@
     "react-dom": "16.10.2"
   },
   "devDependencies": {
+    "@types/react": "16.9.5",
+    "@typescript-eslint/eslint-plugin": "2.3.3",
+    "@typescript-eslint/parser": "2.3.3",
     "eslint": "6.5.1",
     "eslint-config-prettier": "6.4.0",
     "eslint-plugin-prettier": "3.1.1",
+    "eslint-plugin-react": "7.16.0",
     "husky": "3.0.8",
     "lint-staged": "9.4.2",
     "npm-check-updates": "3.1.24",
-    "prettier": "1.18.2"
+    "prettier": "1.18.2",
+    "typescript": "3.6.4"
   }
 }
