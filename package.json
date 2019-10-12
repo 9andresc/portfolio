@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "check": "ncu",
     "dev": "next dev",
     "start": "next start",
-    "test": "jest"
+    "test": "jest",
+    "update": "ncu -u"
   },
   "dependencies": {
     "next": "9.1.1",
