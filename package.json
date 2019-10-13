@@ -11,6 +11,8 @@
     "update": "ncu -u"
   },
   "dependencies": {
+    "@sentry/browser": "5.7.0",
+    "@sentry/node": "5.7.0",
     "next": "9.1.1",
     "react": "16.10.2",
     "react-dom": "16.10.2"
@@ -21,6 +23,7 @@
     "@types/react": "16.9.5",
     "@typescript-eslint/eslint-plugin": "2.3.3",
     "@typescript-eslint/parser": "2.3.3",
+    "@zeit/next-source-maps": "0.0.3",
     "babel-jest": "24.9.0",
     "eslint": "6.5.1",
     "eslint-config-prettier": "6.4.0",
