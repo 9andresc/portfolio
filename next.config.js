@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const withSourceMaps = require('@zeit/next-source-maps')();
+const withSourceMaps = require('@zeit/next-source-maps');
 
 module.exports = withSourceMaps({
   webpack: (config, options) => {
