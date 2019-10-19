@@ -1,6 +1,10 @@
+import { ThemeProvider } from 'emotion-theming';
 import App from 'next/app';
 import React from 'react';
 import * as Sentry from '@sentry/node';
+
+import { Layout } from 'components/layout';
+import { theme } from 'utils/styles';
 
 Sentry.init({
   dsn: 'https://19eb35eb20454657838736fb2102b10c@sentry.io/1777837',
@@ -16,7 +20,13 @@ class MyApp extends App {
     const { err } = this.props as any;
     const modifiedPageProps = { ...pageProps, err };
 
-    return <Component {...modifiedPageProps} />;
+    return (
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Component {...modifiedPageProps} />
+        </Layout>
+      </ThemeProvider>
+    );
   }
 }
 
