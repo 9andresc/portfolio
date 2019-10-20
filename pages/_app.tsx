@@ -1,7 +1,9 @@
 import { ThemeProvider } from 'emotion-theming';
 import App from 'next/app';
 import React from 'react';
+import 'sanitize.css';
 import * as Sentry from '@sentry/node';
+import 'what-input';
 
 import { Layout } from 'components/layout';
 import { theme } from 'utils/styles';
@@ -21,11 +23,19 @@ class MyApp extends App {
     const modifiedPageProps = { ...pageProps, err };
 
     return (
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...modifiedPageProps} />
-        </Layout>
-      </ThemeProvider>
+      <>
+        <style global jsx>{`
+          [data-whatintent='mouse'] *:focus {
+            outline: none;
+          }
+        `}</style>
+
+        <ThemeProvider theme={theme}>
+          <Layout>
+            <Component {...modifiedPageProps} />
+          </Layout>
+        </ThemeProvider>
+      </>
     );
   }
 }
