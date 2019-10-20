@@ -11,6 +11,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link href="/favicon.png" rel="shortcut icon" type="image/png" />
           <link href="https://fonts.googleapis.com/css?family=Sunflower:300,700&display=swap" rel="stylesheet" />
         </Head>
 
