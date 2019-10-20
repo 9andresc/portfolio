@@ -8,26 +8,26 @@ export const mediaQueries = {
 
 export type Theme = {
   colors: {
-    lightColor: string;
-    mainColor: string;
-    darkColor: string;
+    light: string;
+    main: string;
+    dark: string;
 
-    whiteColor: string;
-    greyColor: string;
+    white: string;
+    grey: string;
 
-    dangerColor: string;
+    danger: string;
   };
 };
 
 export const theme: Theme = {
   colors: {
-    lightColor: '#615b69',
-    mainColor: '#37323e', // Onyx
-    darkColor: '#110a18',
+    light: '#615b69',
+    main: '#37323e', // Onyx
+    dark: '#110a18',
 
-    whiteColor: '#ffffff',
-    greyColor: '#fafafa',
+    white: '#ffffff',
+    grey: '#fafafa',
 
-    dangerColor: '#a61c3c', // Deep Carmine
+    danger: '#a61c3c', // Deep Carmine
   },
 };
