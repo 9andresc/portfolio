@@ -25,6 +25,12 @@ class MyApp extends App {
     return (
       <>
         <style global jsx>{`
+          html,
+          body {
+            font-size: 16px;
+            font-family: 'Sunflower', sans-serif;
+          }
+
           [data-whatintent='mouse'] *:focus {
             outline: none;
           }
