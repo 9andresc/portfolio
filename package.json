@@ -43,7 +43,7 @@
     "jest": "24.9.0",
     "lint-staged": "9.4.2",
     "next-compose-plugins": "2.2.0",
-    "npm-check-updates": "3.1.24",
+    "npm-check-updates": "3.1.26",
     "prettier": "1.18.2",
     "typescript": "3.6.4"
   }
