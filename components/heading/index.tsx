@@ -4,18 +4,20 @@ import styled from 'lib/styled';
 import { theme } from 'utils/theme';
 
 type StyledHeadingProps = {
-  bg: keyof typeof theme.colors | 'transparent';
-  level: '1' | '2' | '3';
+  bg?: keyof typeof theme.colors | 'transparent';
+  level?: '1' | '2' | '3';
+  marginBottom?: keyof typeof theme.spacing;
 };
 
-function renderStyledHeading({ bg, level }: StyledHeadingProps) {
+function renderStyledHeading({ bg, level, marginBottom }: StyledHeadingProps) {
   return styled[`h${level}`](({ theme }) => {
+    const marginBottomValue = theme.spacing[marginBottom];
     const sizeValue = theme.headingSizes[`h${level}`];
-    const { unit } = theme;
+    const unit = marginBottomValue === 'auto' ? '' : theme.unit;
 
     return {
       margin: '0',
-      marginBottom: '1.5rem',
+      marginBottom: `${marginBottomValue}${unit}`,
 
       backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
@@ -28,13 +30,11 @@ function renderStyledHeading({ bg, level }: StyledHeadingProps) {
 }
 
 type HeadingProps = {
-  bg?: keyof typeof theme.colors | 'transparent';
   children: React.ReactNode;
   id?: string;
-  level?: '1' | '2' | '3';
-};
+} & StyledHeadingProps;
 
-export function Heading({ bg = 'transparent', children, id, level = '1' }: HeadingProps) {
-  const StyledHeading = renderStyledHeading({ bg, level });
+export function Heading({ bg = 'transparent', children, id, level = '1', marginBottom = 'large' }: HeadingProps) {
+  const StyledHeading = renderStyledHeading({ bg, level, marginBottom });
   return <StyledHeading id={id}>{children}</StyledHeading>;
 }

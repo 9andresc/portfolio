@@ -5,17 +5,19 @@ import { theme } from 'utils/theme';
 
 type StyledTextProps = {
   bg?: keyof typeof theme.colors | 'transparent';
-  size: 'small' | 'medium' | 'large';
-  weight: 'normal' | 'bold';
+  marginBottom?: keyof typeof theme.spacing;
+  size?: 'small' | 'medium' | 'large';
+  weight?: 'normal' | 'bold';
 };
 
-const StyledText = styled.p<StyledTextProps>(({ bg, size, theme, weight }) => {
+const StyledText = styled.p<StyledTextProps>(({ bg, marginBottom, size, theme, weight }) => {
+  const marginBottomValue = theme.spacing[marginBottom];
   const sizeValue = theme.textSizes[size];
-  const { unit } = theme;
+  const unit = marginBottomValue === 'auto' ? '' : theme.unit;
 
   return {
     margin: '0',
-    marginBottom: '1.5rem',
+    marginBottom: `${marginBottomValue}${unit}`,
 
     backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
@@ -27,16 +29,20 @@ const StyledText = styled.p<StyledTextProps>(({ bg, size, theme, weight }) => {
 });
 
 type TextProps = {
-  bg?: keyof typeof theme.colors | 'transparent';
   children: React.ReactNode;
   id?: string;
-  size?: 'small' | 'medium' | 'large';
-  weight?: 'normal' | 'bold';
-};
+} & StyledTextProps;
 
-export function Text({ bg = 'transparent', children, id, size = 'medium', weight = 'normal' }: TextProps) {
+export function Text({
+  bg = 'transparent',
+  children,
+  id,
+  marginBottom = 'large',
+  size = 'medium',
+  weight = 'normal',
+}: TextProps) {
   return (
-    <StyledText bg={bg} id={id} size={size} weight={weight}>
+    <StyledText bg={bg} id={id} marginBottom={marginBottom} size={size} weight={weight}>
       {children}
     </StyledText>
   );

@@ -31,7 +31,7 @@ export function Intro() {
         <Heading>Hey there</Heading>
         <Heading level="2">Thanks for passing by</Heading>
         <Heading level="3">I'm Andres</Heading>
-        <Text>
+        <Text marginBottom="none">
           And my day-to-day role is of a Full Stack Developer. I try to create web expiriences that are:
         </Text>
       </Section>
