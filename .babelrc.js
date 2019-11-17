@@ -9,6 +9,7 @@ module.exports = {
           lib: './lib',
           pages: './pages',
           utils: './utils',
+          views: './views'
         },
         root: ['.'],
       },

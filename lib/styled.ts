@@ -1,5 +1,5 @@
 import styled, { CreateStyled } from '@emotion/styled';
 
-import { Theme } from 'utils/styles';
+import { Theme } from 'utils/theme';
 
 export default styled as CreateStyled<Theme>;

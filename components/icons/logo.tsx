@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, IconProps } from './common';
 
-export function Logo({ size, title, titleId }: IconProps) {
+export function Logo({ size = 'medium', title = 'logo', titleId = 'logo' }: IconProps) {
   return (
     <Container ratio={1} size={size} title={title} titleId={titleId} viewBox="0 0 50 50">
       <rect width="50" height="50" fill="#110A18" />
@@ -113,9 +113,3 @@ export function Logo({ size, title, titleId }: IconProps) {
     </Container>
   );
 }
-
-Logo.defaultProps = {
-  size: 1,
-  title: 'logo',
-  titleId: 'logo',
-};

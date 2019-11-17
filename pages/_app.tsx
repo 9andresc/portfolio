@@ -6,7 +6,7 @@ import * as Sentry from '@sentry/node';
 import 'what-input';
 
 import { Layout } from 'components/layout';
-import { theme } from 'utils/styles';
+import { theme } from 'utils/theme';
 
 Sentry.init({
   dsn: 'https://19eb35eb20454657838736fb2102b10c@sentry.io/1777837',
@@ -27,8 +27,10 @@ class MyApp extends App {
         <style global jsx>{`
           html,
           body {
+            background-color: ${theme.colors.dark};
+
             font-size: 16px;
-            font-family: 'Sunflower', sans-serif;
+            font-family: 'Helvetica', sans-serif;
           }
 
           [data-whatintent='mouse'] *:focus {

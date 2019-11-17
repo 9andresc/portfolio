@@ -1,10 +1,15 @@
 import React from 'react';
 
-import { theme } from 'utils/styles';
+import { theme } from 'utils/theme';
 
 import { Container, IconProps } from './common';
 
-export function LinkedIn({ color, size, title, titleId }: IconProps) {
+export function LinkedIn({
+  color = theme.colors.dark,
+  size = 'medium',
+  title = 'linkedin',
+  titleId = 'linkedin',
+}: IconProps) {
   return (
     <Container ratio={1} size={size} title={title} titleId={titleId} viewBox="0 0 50 50">
       <path
@@ -14,10 +19,3 @@ export function LinkedIn({ color, size, title, titleId }: IconProps) {
     </Container>
   );
 }
-
-LinkedIn.defaultProps = {
-  color: theme.colors.dark,
-  size: 1,
-  title: 'linkedin',
-  titleId: 'linkedin',
-};

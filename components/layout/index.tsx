@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { GitHubIcon, LinkedInIcon, LogoIcon, TwitterIcon } from 'components/icons';
+import { Link } from 'components/link';
 import styled from 'lib/styled';
-import { breakpoints, mediaQueries, theme } from 'utils/styles';
+import { theme } from 'utils/theme';
 
 const Container = styled.div({
   display: 'flex',
@@ -12,80 +13,57 @@ const Container = styled.div({
 });
 
 const Header = styled.header(({ theme }) => ({
-  height: '4rem',
+  height: `${theme.spacing.xxlarge}${theme.unit}`,
   width: '100%',
 
-  backgroundColor: theme.colors.main,
+  backgroundColor: theme.colors.dark,
 
   color: theme.colors.white,
 }));
 
-const HeaderWrapper = styled.div({
+const HeaderWrapper = styled.div(({ theme }) => ({
   alignItems: 'center',
   display: 'flex',
   justifyContent: 'space-between',
   height: 'inherit',
   margin: '0 auto',
-  maxWidth: breakpoints[1] + 'px',
-  padding: '0 1rem',
+  maxWidth: theme.breakpoints[1] + 'px',
+  padding: `0 ${theme.spacing.medium}${theme.unit}`,
 
-  [mediaQueries.md]: {
+  [theme.mediaQueries.medium]: {
     padding: '0',
-  },
-});
-
-const ResumeLink = styled.a(({ theme }) => ({
-  color: theme.colors.white,
-  fontSize: '1rem',
-  fontWeight: 'bold',
-
-  '&:visited': {
-    color: theme.colors.white,
   },
 }));
 
-const Main = styled.main(({ theme }) => ({
+const Main = styled.main(() => ({
   flex: '1',
-
-  backgroundColor: theme.colors.white,
 }));
-
-const MainWrapper = styled.div({
-  flex: 1,
-  margin: '0 auto',
-  maxWidth: breakpoints[1] + 'px',
-  padding: '0 1rem',
-
-  [mediaQueries.md]: {
-    padding: '0',
-  },
-});
 
 const Footer = styled.footer(({ theme }) => ({
-  height: '4rem',
+  height: `${theme.spacing.xxlarge}${theme.unit}`,
   width: '100%',
 
-  backgroundColor: theme.colors.light,
+  backgroundColor: theme.colors.dark,
 
   color: theme.colors.dark,
 }));
 
-const FooterWrapper = styled.div({
+const FooterWrapper = styled.div(({ theme }) => ({
   alignItems: 'center',
   display: 'flex',
   justifyContent: 'center',
   height: 'inherit',
   margin: '0 auto',
-  maxWidth: breakpoints[1] + 'px',
-  padding: '0 1rem',
+  maxWidth: theme.breakpoints[1] + 'px',
+  padding: `0 ${theme.spacing.medium}${theme.unit}`,
 
-  [mediaQueries.md]: {
+  [theme.mediaQueries.medium]: {
     padding: '0',
   },
-});
+}));
 
 const FooterLink = styled.a({
-  marginRight: '1rem',
+  marginRight: `${theme.spacing.medium}${theme.unit}`,
 
   '&:last-of-type': {
     marginRight: '0',
@@ -101,30 +79,28 @@ export function Layout({ children }: LayoutProps) {
     <Container>
       <Header>
         <HeaderWrapper>
-          <LogoIcon size={3} />
+          <LogoIcon size="xxlarge" />
 
-          <ResumeLink download="9andresc-resume.pdf" href={'/resume.pdf'}>
+          <Link download="9andresc-resume.pdf" href="/resume.pdf" weight="bold">
             Get my resume
-          </ResumeLink>
+          </Link>
         </HeaderWrapper>
       </Header>
 
-      <Main>
-        <MainWrapper>{children}</MainWrapper>
-      </Main>
+      <Main>{children}</Main>
 
       <Footer>
         <FooterWrapper>
           <FooterLink href="https://github.com/9andresc" target="_blank">
-            <GitHubIcon color={theme.colors.white} size={2} />
+            <GitHubIcon color={theme.colors.white} size="large" />
           </FooterLink>
 
           <FooterLink href="https://www.linkedin.com/in/9andresc/" target="_blank">
-            <LinkedInIcon color={theme.colors.white} size={2} />
+            <LinkedInIcon color={theme.colors.white} size="large" />
           </FooterLink>
 
           <FooterLink href="https://twitter.com/9andresc" target="_blank">
-            <TwitterIcon color={theme.colors.white} size={2} />
+            <TwitterIcon color={theme.colors.white} size="large" />
           </FooterLink>
         </FooterWrapper>
       </Footer>

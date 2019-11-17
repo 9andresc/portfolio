@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styled from 'lib/styled';
+import { theme } from 'utils/theme';
 
 type WrapperProps = {
   height: number;
@@ -28,14 +29,14 @@ const SVG = styled.svg({
 type ContainerProps = {
   children: React.ReactNode;
   ratio: number;
-  size: number;
+  size: keyof typeof theme.sizes;
   title: string;
   titleId: string;
   viewBox: string;
 };
 
 export function Container({ children, ratio, size, title, titleId, viewBox }: ContainerProps) {
-  const height = size;
+  const height = theme.sizes[size];
   const width = height * ratio;
 
   return (
@@ -50,7 +51,7 @@ export function Container({ children, ratio, size, title, titleId, viewBox }: Co
 
 export type IconProps = {
   color?: string;
-  size?: number;
+  size?: keyof typeof theme.sizes;
   title?: string;
   titleId?: string;
 };
