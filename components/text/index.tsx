@@ -4,16 +4,18 @@ import styled from 'lib/styled';
 import { theme } from 'utils/theme';
 
 type StyledTextProps = {
+  align?: 'left' | 'center' | 'right';
   bg?: keyof typeof theme.colors | 'transparent';
   marginBottom?: keyof typeof theme.spacing;
   size?: 'small' | 'medium' | 'large';
   weight?: 'normal' | 'bold';
 };
 
-const StyledText = styled.p<StyledTextProps>(({ bg, marginBottom, size, theme, weight }) => {
+const StyledText = styled.p<StyledTextProps>(({ align, bg, marginBottom, size, theme, weight }) => {
   const marginBottomValue = theme.spacing[marginBottom];
   const sizeValue = theme.textSizes[size];
   const unit = marginBottomValue === 'auto' ? '' : theme.unit;
+  const fontFamily = (weight === 'normal' ? 'OCFormatSansRegular' : 'OCFormatSansBold') + ', Helvetica, sans-serif';
 
   return {
     margin: '0',
@@ -22,9 +24,10 @@ const StyledText = styled.p<StyledTextProps>(({ bg, marginBottom, size, theme, w
     backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
     color: theme.colors.white,
+    fontFamily,
     fontSize: `${sizeValue}${unit}`,
-    fontWeight: weight,
     lineHeight: `${sizeValue}${unit}`,
+    textAlign: align,
   };
 });
 
@@ -34,6 +37,7 @@ type TextProps = {
 } & StyledTextProps;
 
 export function Text({
+  align = 'left',
   bg = 'transparent',
   children,
   id,
@@ -42,7 +46,7 @@ export function Text({
   weight = 'normal',
 }: TextProps) {
   return (
-    <StyledText bg={bg} id={id} marginBottom={marginBottom} size={size} weight={weight}>
+    <StyledText align={align} bg={bg} id={id} marginBottom={marginBottom} size={size} weight={weight}>
       {children}
     </StyledText>
   );

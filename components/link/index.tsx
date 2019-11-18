@@ -12,6 +12,7 @@ type StyledLinkProps = {
 const StyledLink = styled.a<StyledLinkProps>(({ bg, size, theme, weight }) => {
   const sizeValue = theme.textSizes[size];
   const { unit } = theme;
+  const fontFamily = (weight === 'normal' ? 'OCFormatSansRegular' : 'OCFormatSansBold') + ', Helvetica, sans-serif';
 
   return {
     margin: '0',
@@ -19,8 +20,8 @@ const StyledLink = styled.a<StyledLinkProps>(({ bg, size, theme, weight }) => {
     backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
     color: theme.colors.white,
+    fontFamily,
     fontSize: `${sizeValue}${unit}`,
-    fontWeight: weight,
     lineHeight: `${sizeValue}${unit}`,
     textDecoration: 'underline',
   };

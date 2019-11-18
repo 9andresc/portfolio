@@ -9,9 +9,14 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
+          <meta
+            name="9andresc Portfolio"
+            content="This is my portfolio web page, find my resume and personal info here."
+          />
           <link href="/favicon.png" rel="shortcut icon" type="image/png" />
+          <link rel="stylesheet" type="text/css" href="/fonts.css" />
         </Head>
 
         <body>

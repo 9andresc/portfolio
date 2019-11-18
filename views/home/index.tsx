@@ -7,7 +7,7 @@ export function Home() {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>9andresc Portfolio</title>
       </Head>
 
       <Intro />

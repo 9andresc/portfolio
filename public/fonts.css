@@ -1,0 +1,17 @@
+@import url('//hello.myfonts.net/count/3a9017');
+
+@font-face {
+  font-family: 'OCFormatSansRegular';
+  src: url('webfonts/3A9017_0_0.eot');
+  src: url('webfonts/3A9017_0_0.eot?#iefix') format('embedded-opentype'),
+    url('webfonts/3A9017_0_0.woff2') format('woff2'), url('webfonts/3A9017_0_0.woff') format('woff'),
+    url('webfonts/3A9017_0_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'OCFormatSansBold';
+  src: url('webfonts/3A9017_1_0.eot');
+  src: url('webfonts/3A9017_1_0.eot?#iefix') format('embedded-opentype'),
+    url('webfonts/3A9017_1_0.woff2') format('woff2'), url('webfonts/3A9017_1_0.woff') format('woff'),
+    url('webfonts/3A9017_1_0.ttf') format('truetype');
+}

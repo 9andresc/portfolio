@@ -22,8 +22,8 @@ function renderStyledHeading({ bg, level, marginBottom }: StyledHeadingProps) {
       backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
       color: theme.colors.white,
+      fontFamily: 'OCFormatSansBold, Helvetica, sans-serif',
       fontSize: `${sizeValue}${unit}`,
-      fontWeight: 'bold',
       lineHeight: `${sizeValue}${unit}`,
     };
   });

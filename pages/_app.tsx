@@ -30,7 +30,7 @@ class MyApp extends App {
             background-color: ${theme.colors.dark};
 
             font-size: 16px;
-            font-family: 'Helvetica', sans-serif;
+            font-family: Helvetica, sans-serif;
           }
 
           [data-whatintent='mouse'] *:focus {

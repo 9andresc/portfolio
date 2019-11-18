@@ -91,15 +91,15 @@ export function Layout({ children }: LayoutProps) {
 
       <Footer>
         <FooterWrapper>
-          <FooterLink href="https://github.com/9andresc" target="_blank">
+          <FooterLink href="https://github.com/9andresc" rel="noopener" target="_blank">
             <GitHubIcon color={theme.colors.white} size="large" />
           </FooterLink>
 
-          <FooterLink href="https://www.linkedin.com/in/9andresc/" target="_blank">
+          <FooterLink href="https://www.linkedin.com/in/9andresc/" rel="noopener" target="_blank">
             <LinkedInIcon color={theme.colors.white} size="large" />
           </FooterLink>
 
-          <FooterLink href="https://twitter.com/9andresc" target="_blank">
+          <FooterLink href="https://twitter.com/9andresc" rel="noopener" target="_blank">
             <TwitterIcon color={theme.colors.white} size="large" />
           </FooterLink>
         </FooterWrapper>
