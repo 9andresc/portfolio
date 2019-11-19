@@ -4,12 +4,14 @@ import styled from 'lib/styled';
 import { theme } from 'utils/theme';
 
 type StyledHeadingProps = {
+  align?: 'left' | 'center' | 'right';
   bg?: keyof typeof theme.colors | 'transparent';
+  color?: keyof typeof theme.colors;
   level?: '1' | '2' | '3';
   marginBottom?: keyof typeof theme.spacing;
 };
 
-function renderStyledHeading({ bg, level, marginBottom }: StyledHeadingProps) {
+function renderStyledHeading({ align, bg, color, level, marginBottom }: StyledHeadingProps) {
   return styled[`h${level}`](({ theme }) => {
     const marginBottomValue = theme.spacing[marginBottom];
     const sizeValue = theme.headingSizes[`h${level}`];
@@ -21,10 +23,11 @@ function renderStyledHeading({ bg, level, marginBottom }: StyledHeadingProps) {
 
       backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
-      color: theme.colors.white,
+      color: theme.colors[color],
       fontFamily: 'OCFormatSansBold, Helvetica, sans-serif',
       fontSize: `${sizeValue}${unit}`,
       lineHeight: `${sizeValue}${unit}`,
+      textAlign: align,
     };
   });
 }
@@ -34,7 +37,15 @@ type HeadingProps = {
   id?: string;
 } & StyledHeadingProps;
 
-export function Heading({ bg = 'transparent', children, id, level = '1', marginBottom = 'large' }: HeadingProps) {
-  const StyledHeading = renderStyledHeading({ bg, level, marginBottom });
+export function Heading({
+  align = 'left',
+  bg = 'transparent',
+  children,
+  color = 'white',
+  id,
+  level = '1',
+  marginBottom = 'large',
+}: HeadingProps) {
+  const StyledHeading = renderStyledHeading({ align, bg, color, level, marginBottom });
   return <StyledHeading id={id}>{children}</StyledHeading>;
 }

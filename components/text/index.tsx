@@ -6,12 +6,13 @@ import { theme } from 'utils/theme';
 type StyledTextProps = {
   align?: 'left' | 'center' | 'right';
   bg?: keyof typeof theme.colors | 'transparent';
+  color?: keyof typeof theme.colors;
   marginBottom?: keyof typeof theme.spacing;
   size?: 'small' | 'medium' | 'large';
   weight?: 'normal' | 'bold';
 };
 
-const StyledText = styled.p<StyledTextProps>(({ align, bg, marginBottom, size, theme, weight }) => {
+const StyledText = styled.p<StyledTextProps>(({ align, bg, color, marginBottom, size, theme, weight }) => {
   const marginBottomValue = theme.spacing[marginBottom];
   const sizeValue = theme.textSizes[size];
   const unit = marginBottomValue === 'auto' ? '' : theme.unit;
@@ -23,7 +24,7 @@ const StyledText = styled.p<StyledTextProps>(({ align, bg, marginBottom, size, t
 
     backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
-    color: theme.colors.white,
+    color: theme.colors[color],
     fontFamily,
     fontSize: `${sizeValue}${unit}`,
     lineHeight: `${sizeValue}${unit}`,
@@ -40,13 +41,14 @@ export function Text({
   align = 'left',
   bg = 'transparent',
   children,
+  color = 'white',
   id,
   marginBottom = 'large',
   size = 'medium',
   weight = 'normal',
 }: TextProps) {
   return (
-    <StyledText align={align} bg={bg} id={id} marginBottom={marginBottom} size={size} weight={weight}>
+    <StyledText align={align} bg={bg} color={color} id={id} marginBottom={marginBottom} size={size} weight={weight}>
       {children}
     </StyledText>
   );

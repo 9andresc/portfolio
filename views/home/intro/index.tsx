@@ -6,10 +6,10 @@ import styled from 'lib/styled';
 import { theme } from 'utils/theme';
 
 const Wrapper = styled.div(({ theme }) => ({
-  margin: '0 auto',
-  maxWidth: theme.breakpoints[1] + 'px',
   padding: `0 ${theme.spacing.medium}${theme.unit}`,
   width: '100%',
+
+  backgroundColor: theme.colors.dark,
 
   [theme.mediaQueries.medium]: {
     padding: '0',
@@ -17,12 +17,10 @@ const Wrapper = styled.div(({ theme }) => ({
 }));
 
 const Section = styled.section(({ theme }) => ({
-  padding: `${theme.spacing.medium}${theme.unit} 0`,
+  margin: '0 auto',
+  maxWidth: theme.breakpoints[1] + 'px',
+  padding: `${theme.spacing.xlarge}${theme.unit} 0`,
   width: '100%',
-
-  backgroundColor: theme.colors.dark,
-
-  color: theme.colors.white,
 }));
 
 const BadgesContainer = styled.ul(() => ({

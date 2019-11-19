@@ -5,10 +5,10 @@ const colors = {
   main: '#37323e', // Onyx
   dark: '#110a18',
 
+  secondary: '#d80032', // Vivid Crimson
+
   white: '#ffffff',
   grey: '#fafafa',
-
-  danger: '#a61c3c', // Deep Carmine
 };
 
 const headingSizes = {
@@ -55,10 +55,10 @@ export type Theme = {
     main: string;
     dark: string;
 
+    secondary: string;
+
     white: string;
     grey: string;
-
-    danger: string;
   };
 
   headingSizes: {
