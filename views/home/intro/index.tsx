@@ -6,20 +6,15 @@ import styled from 'lib/styled';
 import { theme } from 'utils/theme';
 
 const Wrapper = styled.div(({ theme }) => ({
-  padding: `0 ${theme.spacing.medium}${theme.unit}`,
   width: '100%',
 
   backgroundColor: theme.colors.dark,
-
-  [theme.mediaQueries.medium]: {
-    padding: '0',
-  },
 }));
 
 const Section = styled.section(({ theme }) => ({
   margin: '0 auto',
   maxWidth: theme.breakpoints[1] + 'px',
-  padding: `${theme.spacing.xlarge}${theme.unit} 0`,
+  padding: `${theme.spacing.xlarge}${theme.unit} ${theme.spacing.medium}${theme.unit}`,
   width: '100%',
 }));
 

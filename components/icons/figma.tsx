@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Container, IconProps } from './common';
 
-export function Figma({ css, size = 'medium', title = 'figma', titleId = 'figma' }: IconProps) {
+export function Figma({ size = 'medium', styles, title = 'figma', titleId = 'figma' }: IconProps) {
   return (
-    <Container css={css} ratio={1} size={size} title={title} titleId={titleId} viewBox="0 0 100 100">
+    <Container ratio={1} size={size} styles={styles} title={title} titleId={titleId} viewBox="0 0 100 100">
       <path
         d="M50 50C50 46.0218 51.5804 42.2064 54.3934 39.3934C57.2064 36.5804 61.0218 35 65 35C68.9782 35 72.7936 36.5804 75.6066 39.3934C78.4196 42.2064 80 46.0218 80 50C80 53.9782 78.4196 57.7936 75.6066 60.6066C72.7936 63.4196 68.9782 65 65 65C61.0218 65 57.2064 63.4196 54.3934 60.6066C51.5804 57.7936 50 53.9782 50 50V50Z"
         fill="#1ABCFE"

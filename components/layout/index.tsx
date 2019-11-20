@@ -29,10 +29,7 @@ const HeaderWrapper = styled.div(({ theme }) => ({
   margin: '0 auto',
   maxWidth: theme.breakpoints[1] + 'px',
   padding: `0 ${theme.spacing.medium}${theme.unit}`,
-
-  [theme.mediaQueries.medium]: {
-    padding: '0',
-  },
+  width: '100%',
 }));
 
 const Main = styled.main(() => ({
@@ -56,10 +53,7 @@ const FooterWrapper = styled.div(({ theme }) => ({
   margin: '0 auto',
   maxWidth: theme.breakpoints[1] + 'px',
   padding: `0 ${theme.spacing.medium}${theme.unit}`,
-
-  [theme.mediaQueries.medium]: {
-    padding: '0',
-  },
+  width: '100%',
 }));
 
 const FooterLink = styled.a({

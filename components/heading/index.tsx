@@ -1,40 +1,37 @@
+import { CSSProperties } from '@emotion/serialize';
 import React from 'react';
 
 import styled from 'lib/styled';
-import { theme } from 'utils/theme';
+import { theme, Theme } from 'utils/theme';
 
 type StyledHeadingProps = {
   align?: 'left' | 'center' | 'right';
   bg?: keyof typeof theme.colors | 'transparent';
   color?: keyof typeof theme.colors;
   level?: '1' | '2' | '3';
-  marginBottom?: keyof typeof theme.spacing;
 };
 
-function renderStyledHeading({ align, bg, color, level, marginBottom }: StyledHeadingProps) {
-  return styled[`h${level}`](({ theme }) => {
-    const marginBottomValue = theme.spacing[marginBottom];
-    const sizeValue = theme.headingSizes[`h${level}`];
-    const unit = marginBottomValue === 'auto' ? '' : theme.unit;
+let StyledHeading = styled.h1<StyledHeadingProps & { as: string }>(({ align, bg, color, level, theme }) => {
+  const sizeValue = theme.headingSizes[`h${level}`];
 
-    return {
-      margin: '0',
-      marginBottom: `${marginBottomValue}${unit}`,
+  return {
+    margin: '0',
+    marginBottom: `${theme.spacing.large}${theme.unit}`,
 
-      backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
+    backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
-      color: theme.colors[color],
-      fontFamily: 'OCFormatSansBold, Helvetica, sans-serif',
-      fontSize: `${sizeValue}${unit}`,
-      lineHeight: `${sizeValue}${unit}`,
-      textAlign: align,
-    };
-  });
-}
+    color: theme.colors[color],
+    fontFamily: 'OCFormatSansBold, Helvetica, sans-serif',
+    fontSize: `${sizeValue}${theme.unit}`,
+    lineHeight: `${sizeValue}${theme.unit}`,
+    textAlign: align,
+  };
+});
 
 type HeadingProps = {
   children: React.ReactNode;
   id?: string;
+  styles?: (theme: Theme) => CSSProperties;
 } & StyledHeadingProps;
 
 export function Heading({
@@ -44,8 +41,15 @@ export function Heading({
   color = 'white',
   id,
   level = '1',
-  marginBottom = 'large',
+  styles,
 }: HeadingProps) {
-  const StyledHeading = renderStyledHeading({ align, bg, color, level, marginBottom });
-  return <StyledHeading id={id}>{children}</StyledHeading>;
+  if (styles) {
+    StyledHeading = styled(StyledHeading)(({ theme }) => ({ ...styles(theme) }));
+  }
+
+  return (
+    <StyledHeading align={align} as={`h${level}`} bg={bg} color={color} id={id} level={level}>
+      {children}
+    </StyledHeading>
+  );
 }

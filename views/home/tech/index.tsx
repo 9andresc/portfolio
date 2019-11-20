@@ -12,16 +12,12 @@ import {
   VSCodeIcon,
 } from 'components/icons';
 import styled from 'lib/styled';
+import { Theme } from 'utils/theme';
 
 const Section = styled.div(({ theme }) => ({
-  padding: `0 ${theme.spacing.medium}${theme.unit}`,
   width: '100%',
 
   backgroundColor: theme.colors.secondary,
-
-  [theme.mediaQueries.medium]: {
-    padding: '0',
-  },
 }));
 
 const Wrapper = styled.section(({ theme }) => ({
@@ -31,43 +27,71 @@ const Wrapper = styled.section(({ theme }) => ({
   justifyContent: 'center',
   margin: '0 auto',
   maxWidth: theme.breakpoints[1] + 'px',
-  padding: `${theme.spacing.xlarge}${theme.unit} 0`,
+  padding: `${theme.spacing.xlarge}${theme.unit} ${theme.spacing.medium}${theme.unit}`,
   width: '100%',
 
   [theme.mediaQueries.medium]: {
     flexDirection: 'row-reverse',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
 }));
+
+const headingStyles = (theme: Theme) => ({
+  [theme.mediaQueries.medium]: {
+    marginBottom: '0',
+  },
+});
 
 const IconsContainer = styled.div(({ theme }) => ({
   alignItems: 'center',
   display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'center',
   width: '100%',
 
   [theme.mediaQueries.medium]: {
+    marginRight: `${theme.spacing.xlarge}${theme.unit}`,
     width: 'auto',
   },
 }));
+
+const IconsRow = styled.div(({ theme }) => ({
+  display: 'flex',
+  marginBottom: `${theme.spacing.medium}${theme.unit}`,
+
+  '&:last-of-type': {
+    marginBottom: '0',
+  },
+}));
+
+const iconStyles = (theme: Theme) => ({
+  marginRight: `${theme.spacing.medium}${theme.unit}`,
+  filter: 'grayscale(100%)',
+
+  '&:last-of-type': {
+    marginRight: '0',
+  },
+});
 
 export function Tech() {
   return (
     <Section>
       <Wrapper>
-        <Heading align="right" marginBottom="none">
-          Tech I love
-        </Heading>
+        <Heading styles={headingStyles}>Tech I love</Heading>
 
         <IconsContainer>
-          <FigmaIcon css={{ filter: 'grayscale(100%)' }} size="xxlarge" />
-          <FirefoxIcon css={{ filter: 'grayscale(100%)' }} size="xxlarge" />
-          <NextJSIcon css={{ filter: 'grayscale(100%)' }} size="xxlarge" />
-          <NodeJSIcon css={{ filter: 'grayscale(100%)' }} size="xxlarge" />
-          <PostgreSQLIcon css={{ filter: 'grayscale(100%)' }} size="xxlarge" />
-          <ReactIcon css={{ filter: 'grayscale(100%)' }} size="xxlarge" />
-          <TypescriptIcon css={{ filter: 'grayscale(100%)' }} size="xxlarge" />
-          <VSCodeIcon css={{ filter: 'grayscale(100%)' }} size="xxlarge" />
+          <IconsRow>
+            <FigmaIcon size="xxlarge" styles={iconStyles} />
+            <FirefoxIcon size="xxlarge" styles={iconStyles} />
+            <NextJSIcon size="xxlarge" styles={iconStyles} />
+            <NodeJSIcon size="xxlarge" styles={iconStyles} />
+          </IconsRow>
+          <IconsRow>
+            <PostgreSQLIcon size="xxlarge" styles={iconStyles} />
+            <ReactIcon size="xxlarge" styles={iconStyles} />
+            <TypescriptIcon size="xxlarge" styles={iconStyles} />
+            <VSCodeIcon size="xxlarge" styles={iconStyles} />
+          </IconsRow>
         </IconsContainer>
       </Wrapper>
     </Section>

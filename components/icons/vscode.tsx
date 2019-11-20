@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Container, IconProps } from './common';
 
-export function VSCode({ css, size = 'medium', title = 'vscode', titleId = 'vscode' }: IconProps) {
+export function VSCode({ size = 'medium', styles, title = 'vscode', titleId = 'vscode' }: IconProps) {
   return (
-    <Container css={css} ratio={1} size={size} title={title} titleId={titleId} viewBox="0 0 100 100">
+    <Container ratio={1} size={size} styles={styles} title={title} titleId={titleId} viewBox="0 0 100 100">
       <path
         d="M91.8148 14.7157L73.271 5.78714C71.1247 4.75366 68.5593 5.1896 66.8746 6.87415L6.16849 62.224C4.53565 63.7129 4.53753 66.2835 6.17254 67.7699L11.1312 72.2777C12.4679 73.493 14.481 73.5823 15.9202 72.4907L89.0245 17.032C91.477 15.1715 94.9996 16.9207 94.9996 19.9992V19.7839C94.9996 17.623 93.7618 15.6532 91.8148 14.7157Z"
         fill="#0065A9"
