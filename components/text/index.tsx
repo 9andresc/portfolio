@@ -18,7 +18,7 @@ let StyledText = styled.p<StyledTextProps>(({ align, bg, color, size, theme, wei
 
   return {
     margin: '0',
-    marginBottom: `${theme.spacing.medium}${theme.unit}`,
+    marginBottom: `${theme.spacing.large}${theme.unit}`,
 
     backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
