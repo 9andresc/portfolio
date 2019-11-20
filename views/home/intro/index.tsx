@@ -3,7 +3,7 @@ import React from 'react';
 import { Heading } from 'components/heading';
 import { Text } from 'components/text';
 import styled from 'lib/styled';
-import { theme } from 'utils/theme';
+import { theme, Theme } from 'utils/theme';
 
 const Wrapper = styled.div(({ theme }) => ({
   width: '100%',
@@ -43,6 +43,10 @@ const Badge = styled.li<BadgeProps>(({ bg, theme }) => ({
   backgroundColor: theme.colors[bg],
 }));
 
+const badgeTextStyles = (theme: Theme) => ({
+  marginBottom: theme.spacing.none,
+});
+
 export function Intro() {
   return (
     <Wrapper>
@@ -54,17 +58,17 @@ export function Intro() {
 
         <BadgesContainer>
           <Badge bg="light">
-            <Text align="center" marginBottom="none" weight="bold">
+            <Text align="center" styles={badgeTextStyles} weight="bold">
               Visually Harmonic
             </Text>
           </Badge>
           <Badge bg="main">
-            <Text align="center" marginBottom="none" weight="bold">
+            <Text align="center" styles={badgeTextStyles} weight="bold">
               Easily Maintainable
             </Text>
           </Badge>
           <Badge bg="dark">
-            <Text align="center" marginBottom="none" weight="bold">
+            <Text align="center" styles={badgeTextStyles} weight="bold">
               Performant
             </Text>
           </Badge>

@@ -1,33 +1,31 @@
+import { CSSProperties } from '@emotion/serialize';
 import React from 'react';
 
 import styled from 'lib/styled';
-import { theme } from 'utils/theme';
+import { theme, Theme } from 'utils/theme';
 
 type StyledTextProps = {
   align?: 'left' | 'center' | 'right';
   bg?: keyof typeof theme.colors | 'transparent';
   color?: keyof typeof theme.colors;
-  marginBottom?: keyof typeof theme.spacing;
   size?: 'small' | 'medium' | 'large';
   weight?: 'normal' | 'bold';
 };
 
-const StyledText = styled.p<StyledTextProps>(({ align, bg, color, marginBottom, size, theme, weight }) => {
-  const marginBottomValue = theme.spacing[marginBottom];
+let StyledText = styled.p<StyledTextProps>(({ align, bg, color, size, theme, weight }) => {
   const sizeValue = theme.textSizes[size];
-  const unit = marginBottomValue === 'auto' ? '' : theme.unit;
   const fontFamily = (weight === 'normal' ? 'OCFormatSansRegular' : 'OCFormatSansBold') + ', Helvetica, sans-serif';
 
   return {
     margin: '0',
-    marginBottom: `${marginBottomValue}${unit}`,
+    marginBottom: `${theme.spacing.medium}${theme.unit}`,
 
     backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
     color: theme.colors[color],
     fontFamily,
-    fontSize: `${sizeValue}${unit}`,
-    lineHeight: `${sizeValue}${unit}`,
+    fontSize: `${sizeValue}${theme.unit}`,
+    lineHeight: `${sizeValue}${theme.unit}`,
     textAlign: align,
   };
 });
@@ -35,6 +33,7 @@ const StyledText = styled.p<StyledTextProps>(({ align, bg, color, marginBottom, 
 type TextProps = {
   children: React.ReactNode;
   id?: string;
+  styles?: (theme: Theme) => CSSProperties;
 } & StyledTextProps;
 
 export function Text({
@@ -43,12 +42,16 @@ export function Text({
   children,
   color = 'white',
   id,
-  marginBottom = 'large',
   size = 'medium',
+  styles,
   weight = 'normal',
 }: TextProps) {
+  if (styles) {
+    StyledText = styled(StyledText)(({ theme }) => ({ ...styles(theme) }));
+  }
+
   return (
-    <StyledText align={align} bg={bg} color={color} id={id} marginBottom={marginBottom} size={size} weight={weight}>
+    <StyledText align={align} bg={bg} color={color} id={id} size={size} weight={weight}>
       {children}
     </StyledText>
   );
