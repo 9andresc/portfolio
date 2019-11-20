@@ -11,6 +11,11 @@ const colors = {
   grey: '#fafafa',
 };
 
+const fontFamilies = {
+  normal: 'OCFormatSansRegular, Helvetica, sans-serif',
+  bold: 'OCFormatSansBold, Helvetica, sans-serif',
+};
+
 const headingSizes = {
   h1: 4.236,
   h2: 2.618,
@@ -31,7 +36,7 @@ const sizes = {
   large: 1.618,
   xlarge: 2.618,
   xxlarge: 4.236,
-}
+};
 
 const spacing = {
   ...sizes,
@@ -59,6 +64,11 @@ export type Theme = {
 
     white: string;
     grey: string;
+  };
+
+  fontFamilies: {
+    normal: string;
+    bold: string;
   };
 
   headingSizes: {
@@ -109,6 +119,7 @@ export type Theme = {
 export const theme: Theme = {
   breakpoints,
   colors,
+  fontFamilies,
   headingSizes,
   mediaQueries,
   sizes,

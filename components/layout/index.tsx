@@ -5,12 +5,14 @@ import { Link } from 'components/link';
 import styled from 'lib/styled';
 import { theme } from 'utils/theme';
 
-const Container = styled.div({
+const Container = styled.div(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
   width: '100%',
-});
+
+  backgroundColor: theme.colors.dark,
+}));
 
 const Header = styled.header(({ theme }) => ({
   height: `${theme.spacing.xxlarge}${theme.unit}`,

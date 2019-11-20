@@ -13,8 +13,8 @@ type StyledTextProps = {
 };
 
 let StyledText = styled.p<StyledTextProps>(({ align, bg, color, size, theme, weight }) => {
+  const fontFamily = theme.fontFamilies[weight];
   const sizeValue = theme.textSizes[size];
-  const fontFamily = (weight === 'normal' ? 'OCFormatSansRegular' : 'OCFormatSansBold') + ', Helvetica, sans-serif';
 
   return {
     margin: '0',

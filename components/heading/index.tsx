@@ -21,7 +21,7 @@ let StyledHeading = styled.h1<StyledHeadingProps & { as: string }>(({ align, bg,
     backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
     color: theme.colors[color],
-    fontFamily: 'OCFormatSansBold, Helvetica, sans-serif',
+    fontFamily: theme.fontFamilies.bold,
     fontSize: `${sizeValue}${theme.unit}`,
     lineHeight: `${sizeValue}${theme.unit}`,
     textAlign: align,

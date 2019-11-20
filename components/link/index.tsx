@@ -10,9 +10,9 @@ type StyledLinkProps = {
 };
 
 const StyledLink = styled.a<StyledLinkProps>(({ bg, size, theme, weight }) => {
+  const fontFamily = theme.fontFamilies[weight];
   const sizeValue = theme.textSizes[size];
   const { unit } = theme;
-  const fontFamily = (weight === 'normal' ? 'OCFormatSansRegular' : 'OCFormatSansBold') + ', Helvetica, sans-serif';
 
   return {
     margin: '0',

@@ -27,10 +27,7 @@ class MyApp extends App {
         <style global jsx>{`
           html,
           body {
-            background-color: ${theme.colors.dark};
-
             font-size: 16px;
-            font-family: Helvetica, sans-serif;
           }
 
           [data-whatintent='mouse'] *:focus {
