@@ -14,7 +14,7 @@
     "@emotion/core": "10.0.27",
     "@emotion/styled": "10.0.27",
     "@sentry/browser": "5.12.1",
-    "@sentry/node": "5.12.3",
+    "@sentry/node": "5.25.0",
     "emotion-theming": "10.0.27",
     "next": "9.2.1",
     "react": "16.12.0",
