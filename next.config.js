@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withPlugins = require('next-compose-plugins');
-const withCSS = require('@zeit/next-css');
 const withSourceMaps = require('@zeit/next-source-maps');
 
 const nextConfiguration = {
@@ -13,4 +12,4 @@ const nextConfiguration = {
   },
 };
 
-module.exports = withPlugins([[withCSS], [withSourceMaps]], nextConfiguration);
+module.exports = withPlugins([[withSourceMaps]], nextConfiguration);
