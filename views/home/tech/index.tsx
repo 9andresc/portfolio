@@ -14,13 +14,13 @@ import {
 } from 'components/icons';
 import { theme, Theme } from 'utils/theme';
 
-const Section = styled.div(({ theme }) => ({
+const Wrapper = styled.div(({ theme }) => ({
   width: '100%',
 
   backgroundColor: theme.colors.secondary,
 }));
 
-const Wrapper = styled.section(({ theme }) => ({
+const Section = styled.section(({ theme }) => ({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
@@ -75,25 +75,27 @@ const iconStyles = (theme: Theme) => ({
 
 export function Tech(): ReactElement {
   return (
-    <Section>
-      <Wrapper>
-        <Heading styles={headingStyles(theme)}>Tech I love</Heading>
+    <Wrapper>
+      <Section>
+        <Heading align="center" styles={headingStyles(theme)}>
+          Tech I love
+        </Heading>
 
         <IconsContainer>
           <IconsRow>
-            <FigmaIcon size="xxlarge" styles={iconStyles(theme)} />
-            <FirefoxIcon size="xxlarge" styles={iconStyles(theme)} />
-            <NextJSIcon size="xxlarge" styles={iconStyles(theme)} />
-            <NodeJSIcon size="xxlarge" styles={iconStyles(theme)} />
+            <FigmaIcon size={['xlarge', 'xxlarge']} styles={iconStyles(theme)} />
+            <FirefoxIcon size={['xlarge', 'xxlarge']} styles={iconStyles(theme)} />
+            <NextJSIcon size={['xlarge', 'xxlarge']} styles={iconStyles(theme)} />
+            <NodeJSIcon size={['xlarge', 'xxlarge']} styles={iconStyles(theme)} />
           </IconsRow>
           <IconsRow>
-            <PostgreSQLIcon size="xxlarge" styles={iconStyles(theme)} />
-            <ReactIcon size="xxlarge" styles={iconStyles(theme)} />
-            <TypescriptIcon size="xxlarge" styles={iconStyles(theme)} />
-            <VSCodeIcon size="xxlarge" styles={iconStyles(theme)} />
+            <PostgreSQLIcon size={['xlarge', 'xxlarge']} styles={iconStyles(theme)} />
+            <ReactIcon size={['xlarge', 'xxlarge']} styles={iconStyles(theme)} />
+            <TypescriptIcon size={['xlarge', 'xxlarge']} styles={iconStyles(theme)} />
+            <VSCodeIcon size={['xlarge', 'xxlarge']} styles={iconStyles(theme)} />
           </IconsRow>
         </IconsContainer>
-      </Wrapper>
-    </Section>
+      </Section>
+    </Wrapper>
   );
 }
