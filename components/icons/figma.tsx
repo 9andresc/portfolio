@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { Container, IconProps } from './common';
 
-export function Figma({ size = 'medium', styles, title = 'figma', titleId = 'figma' }: IconProps) {
+export function Figma({ size = 'medium', styles, title = 'figma', titleId = 'figma' }: IconProps): ReactElement {
   return (
     <Container ratio={1} size={size} styles={styles} title={title} titleId={titleId} viewBox="0 0 100 100">
       <path

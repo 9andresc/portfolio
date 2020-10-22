@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { Container, IconProps } from './common';
 
-export function Logo({ size = 'medium', title = 'logo', titleId = 'logo' }: IconProps) {
+export function Logo({ size = 'medium', styles, title = 'logo', titleId = 'logo' }: IconProps): ReactElement {
   return (
-    <Container ratio={1} size={size} title={title} titleId={titleId} viewBox="0 0 50 50">
+    <Container ratio={1} size={size} styles={styles} title={title} titleId={titleId} viewBox="0 0 50 50">
       <rect width="50" height="50" fill="#110A18" />
       <path
         fillRule="evenodd"

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { Container, IconProps } from './common';
 
-export function NextJS({ size = 'medium', styles, title = 'next.js', titleId = 'next.js' }: IconProps) {
+export function NextJS({ size = 'medium', styles, title = 'next.js', titleId = 'next.js' }: IconProps): ReactElement {
   return (
     <Container ratio={1} size={size} styles={styles} title={title} titleId={titleId} viewBox="0 0 100 100">
       <path

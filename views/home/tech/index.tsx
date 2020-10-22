@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+import styled from 'styled-components';
 
 import { Heading } from 'components/heading';
 import {
@@ -11,8 +12,7 @@ import {
   TypescriptIcon,
   VSCodeIcon,
 } from 'components/icons';
-import styled from 'lib/styled';
-import { Theme } from 'utils/theme';
+import { theme, Theme } from 'utils/theme';
 
 const Section = styled.div(({ theme }) => ({
   width: '100%',
@@ -73,24 +73,24 @@ const iconStyles = (theme: Theme) => ({
   },
 });
 
-export function Tech() {
+export function Tech(): ReactElement {
   return (
     <Section>
       <Wrapper>
-        <Heading styles={headingStyles}>Tech I love</Heading>
+        <Heading styles={headingStyles(theme)}>Tech I love</Heading>
 
         <IconsContainer>
           <IconsRow>
-            <FigmaIcon size="xxlarge" styles={iconStyles} />
-            <FirefoxIcon size="xxlarge" styles={iconStyles} />
-            <NextJSIcon size="xxlarge" styles={iconStyles} />
-            <NodeJSIcon size="xxlarge" styles={iconStyles} />
+            <FigmaIcon size="xxlarge" styles={iconStyles(theme)} />
+            <FirefoxIcon size="xxlarge" styles={iconStyles(theme)} />
+            <NextJSIcon size="xxlarge" styles={iconStyles(theme)} />
+            <NodeJSIcon size="xxlarge" styles={iconStyles(theme)} />
           </IconsRow>
           <IconsRow>
-            <PostgreSQLIcon size="xxlarge" styles={iconStyles} />
-            <ReactIcon size="xxlarge" styles={iconStyles} />
-            <TypescriptIcon size="xxlarge" styles={iconStyles} />
-            <VSCodeIcon size="xxlarge" styles={iconStyles} />
+            <PostgreSQLIcon size="xxlarge" styles={iconStyles(theme)} />
+            <ReactIcon size="xxlarge" styles={iconStyles(theme)} />
+            <TypescriptIcon size="xxlarge" styles={iconStyles(theme)} />
+            <VSCodeIcon size="xxlarge" styles={iconStyles(theme)} />
           </IconsRow>
         </IconsContainer>
       </Wrapper>

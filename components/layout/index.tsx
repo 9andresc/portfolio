@@ -1,8 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { GitHubIcon, LinkedInIcon, LogoIcon, TwitterIcon } from 'components/icons';
 import { Link } from 'components/link';
-import styled from 'lib/styled';
 import { theme } from 'utils/theme';
 
 const Container = styled.div(({ theme }) => ({
@@ -34,9 +34,9 @@ const HeaderWrapper = styled.div(({ theme }) => ({
   width: '100%',
 }));
 
-const Main = styled.main(() => ({
+const Main = styled.main({
   flex: '1',
-}));
+});
 
 const Footer = styled.footer(({ theme }) => ({
   height: `${theme.spacing.xxlarge}${theme.unit}`,
@@ -70,7 +70,7 @@ type LayoutProps = {
   children: React.ReactNode;
 };
 
-export function Layout({ children }: LayoutProps) {
+export function Layout({ children }: LayoutProps): React.ReactElement {
   return (
     <Container>
       <Header>

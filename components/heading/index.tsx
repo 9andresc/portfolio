@@ -1,37 +1,61 @@
-import { CSSProperties } from '@emotion/serialize';
-import React from 'react';
+import React, { ReactNode } from 'react';
+import styled, { CSSProperties } from 'styled-components';
 
-import styled from 'lib/styled';
-import { theme, Theme } from 'utils/theme';
+import { theme } from 'utils/theme';
 
 type StyledHeadingProps = {
   align?: 'left' | 'center' | 'right';
   bg?: keyof typeof theme.colors | 'transparent';
   color?: keyof typeof theme.colors;
-  level?: '1' | '2' | '3';
+  styles?: CSSProperties;
 };
 
-let StyledHeading = styled.h1<StyledHeadingProps & { as: string }>(({ align, bg, color, level, theme }) => {
-  const sizeValue = theme.headingSizes[`h${level}`];
+const StyledH1 = styled.h1<StyledHeadingProps>(({ align, bg, color, styles, theme }) => ({
+  margin: '0',
+  marginBottom: `${theme.spacing.large}${theme.unit}`,
 
-  return {
-    margin: '0',
-    marginBottom: `${theme.spacing.large}${theme.unit}`,
+  backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
 
-    backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
+  color: theme.colors[color],
+  fontFamily: theme.fontFamilies.bold,
+  fontSize: `${theme.headingSizes.h1}${theme.unit}`,
+  lineHeight: `${theme.headingSizes.h1}${theme.unit}`,
+  textAlign: align,
+  ...styles,
+}));
 
-    color: theme.colors[color],
-    fontFamily: theme.fontFamilies.bold,
-    fontSize: `${sizeValue}${theme.unit}`,
-    lineHeight: `${sizeValue}${theme.unit}`,
-    textAlign: align,
-  };
-});
+const StyledH2 = styled.h2<StyledHeadingProps>(({ align, bg, color, styles, theme }) => ({
+  margin: '0',
+  marginBottom: `${theme.spacing.large}${theme.unit}`,
+
+  backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
+
+  color: theme.colors[color],
+  fontFamily: theme.fontFamilies.bold,
+  fontSize: `${theme.headingSizes.h2}${theme.unit}`,
+  lineHeight: `${theme.headingSizes.h2}${theme.unit}`,
+  textAlign: align,
+  ...styles,
+}));
+
+const StyledH3 = styled.h3<StyledHeadingProps>(({ align, bg, color, styles, theme }) => ({
+  margin: '0',
+  marginBottom: `${theme.spacing.large}${theme.unit}`,
+
+  backgroundColor: bg === 'transparent' ? bg : theme.colors[bg],
+
+  color: theme.colors[color],
+  fontFamily: theme.fontFamilies.bold,
+  fontSize: `${theme.headingSizes.h3}${theme.unit}`,
+  lineHeight: `${theme.headingSizes.h3}${theme.unit}`,
+  textAlign: align,
+  ...styles,
+}));
 
 type HeadingProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   id?: string;
-  styles?: (theme: Theme) => CSSProperties;
+  level?: '1' | '2' | '3';
 } & StyledHeadingProps;
 
 export function Heading({
@@ -42,13 +66,18 @@ export function Heading({
   id,
   level = '1',
   styles,
-}: HeadingProps) {
-  if (styles) {
-    StyledHeading = styled(StyledHeading)(({ theme }) => ({ ...styles(theme) }));
+}: HeadingProps): React.ReactElement {
+  let StyledHeading;
+  if (level === '1') {
+    StyledHeading = StyledH1;
+  } else if (level === '2') {
+    StyledHeading = StyledH2;
+  } else {
+    StyledHeading = StyledH3;
   }
 
   return (
-    <StyledHeading align={align} as={`h${level}`} bg={bg} color={color} id={id} level={level}>
+    <StyledHeading align={align} bg={bg} color={color} id={id} styles={styles}>
       {children}
     </StyledHeading>
   );

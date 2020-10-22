@@ -1,6 +1,7 @@
 import NextLink from 'next/link';
+import React, { ReactElement } from 'react';
+import styled from 'styled-components';
 
-import styled from 'lib/styled';
 import { theme } from 'utils/theme';
 
 type StyledLinkProps = {
@@ -47,7 +48,7 @@ export function Link({
   size = 'medium',
   useNext = false,
   weight = 'normal',
-}: LinkProps) {
+}: LinkProps): ReactElement {
   if (useNext) {
     return (
       <NextLink href={href}>

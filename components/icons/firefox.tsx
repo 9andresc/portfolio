@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { Container, IconProps } from './common';
 
-export function Firefox({ size = 'medium', styles, title = 'firefox', titleId = 'firefox' }: IconProps) {
+export function Firefox({ size = 'medium', styles, title = 'firefox', titleId = 'firefox' }: IconProps): ReactElement {
   return (
     <Container ratio={1} size={size} styles={styles} title={title} titleId={titleId} viewBox="0 0 100 100">
       <path

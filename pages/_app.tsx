@@ -1,9 +1,9 @@
-import { ThemeProvider } from 'emotion-theming';
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import App from 'next/app';
 import React from 'react';
 import 'sanitize.css';
 import * as Sentry from '@sentry/node';
-import 'what-input';
+import { ThemeProvider } from 'styled-components';
 
 import { Layout } from 'components/layout';
 import { theme } from 'utils/theme';
@@ -28,10 +28,7 @@ class MyApp extends App {
           html,
           body {
             font-size: 16px;
-          }
-
-          [data-whatintent='mouse'] *:focus {
-            outline: none;
+            cursor: auto;
           }
         `}</style>
 

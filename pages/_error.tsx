@@ -1,5 +1,5 @@
 import NextError, { ErrorProps } from 'next/error';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import * as Sentry from '@sentry/node';
 
 type MyErrorProps = {
@@ -8,7 +8,7 @@ type MyErrorProps = {
   err: Error;
 };
 
-const MyError = ({ statusCode, hasGetInitialPropsRun, err }: MyErrorProps) => {
+const MyError = ({ statusCode, hasGetInitialPropsRun, err }: MyErrorProps): ReactElement => {
   if (!hasGetInitialPropsRun && err) {
     // getInitialProps is not called in case of
     // https://github.com/zeit/next.js/issues/8592. As a workaround, we pass

@@ -1,19 +1,20 @@
-import { CSSProperties } from '@emotion/serialize';
-import React from 'react';
+import React, { ReactElement, ReactNode } from 'react';
+import styled, { CSSProperties } from 'styled-components';
 
-import styled from 'lib/styled';
-import { theme, Theme } from 'utils/theme';
+import { theme } from 'utils/theme';
 
 type WrapperProps = {
   height: number;
+  styles?: CSSProperties;
   width: number;
 };
 
-const Wrapper = styled.div<WrapperProps>(({ height, width }) => ({
+const Wrapper = styled.div<WrapperProps>(({ height, styles, width }) => ({
   position: 'relative',
 
   height: height + 'rem',
   width: width + 'rem',
+  ...styles,
 }));
 
 const SVG = styled.svg({
@@ -28,38 +29,33 @@ const SVG = styled.svg({
 });
 
 type ContainerProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   ratio: number;
   size: keyof typeof theme.sizes;
-  styles?: (theme: Theme) => CSSProperties;
+  styles?: CSSProperties;
   title: string;
   titleId: string;
   viewBox: string;
 };
 
-export function Container({ children, ratio, size, styles, title, titleId, viewBox }: ContainerProps) {
+export function Container({ children, ratio, size, styles, title, titleId, viewBox }: ContainerProps): ReactElement {
   const height = theme.sizes[size];
   const width = height * ratio;
 
-  let StyledWrapper = Wrapper;
-  if (styles) {
-    StyledWrapper = styled(Wrapper)(({ theme }) => ({ ...styles(theme) }));
-  }
-
   return (
-    <StyledWrapper height={height} width={width}>
+    <Wrapper height={height} styles={styles} width={width}>
       <SVG aria-labelledby={titleId} fill="none" role="img" viewBox={viewBox} xmlns="http://www.w3.org/2000/svg">
         <title id={titleId}>{title}</title>
         {children}
       </SVG>
-    </StyledWrapper>
+    </Wrapper>
   );
 }
 
 export type IconProps = {
   color?: string;
   size?: keyof typeof theme.sizes;
-  styles?: (theme: Theme) => CSSProperties;
+  styles?: CSSProperties;
   title?: string;
   titleId?: string;
 };

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+import styled from 'styled-components';
 
 import { Heading } from 'components/heading';
 import { Text } from 'components/text';
-import styled from 'lib/styled';
 import { theme, Theme } from 'utils/theme';
 
 const Wrapper = styled.div(({ theme }) => ({
@@ -18,7 +18,7 @@ const Section = styled.section(({ theme }) => ({
   width: '100%',
 }));
 
-const BadgesContainer = styled.ul(() => ({
+const BadgesContainer = styled.ul({
   display: 'flex',
   flexDirection: 'column',
   margin: '0',
@@ -30,7 +30,7 @@ const BadgesContainer = styled.ul(() => ({
   [theme.mediaQueries.small]: {
     flexDirection: 'row',
   },
-}));
+});
 
 type BadgeProps = {
   bg: keyof typeof theme.colors;
@@ -47,28 +47,28 @@ const badgeTextStyles = (theme: Theme) => ({
   marginBottom: theme.spacing.none,
 });
 
-export function Intro() {
+export function Intro(): ReactElement {
   return (
     <Wrapper>
       <Section>
         <Heading>Hey there</Heading>
         <Heading level="2">Thanks for passing by</Heading>
-        <Heading level="3">I'm Andres</Heading>
+        <Heading level="3">I&apos;m Andres</Heading>
         <Text>And my day-to-day role is of a Full Stack Developer. I enjoy creating web applications that are:</Text>
 
         <BadgesContainer>
           <Badge bg="light">
-            <Text align="center" styles={badgeTextStyles} weight="bold">
+            <Text align="center" styles={badgeTextStyles(theme)} weight="bold">
               Visually Harmonic
             </Text>
           </Badge>
           <Badge bg="main">
-            <Text align="center" styles={badgeTextStyles} weight="bold">
+            <Text align="center" styles={badgeTextStyles(theme)} weight="bold">
               Easily Maintainable
             </Text>
           </Badge>
           <Badge bg="dark">
-            <Text align="center" styles={badgeTextStyles} weight="bold">
+            <Text align="center" styles={badgeTextStyles(theme)} weight="bold">
               Performant
             </Text>
           </Badge>

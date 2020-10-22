@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { Intro } from './intro';
 import { Tech } from './tech';
 
-export function Home() {
+export function Home(): ReactElement {
   return (
     <>
       <Head>

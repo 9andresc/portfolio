@@ -1,6 +1,11 @@
 module.exports = {
   plugins: [
-    'emotion',
+    [
+      'babel-plugin-styled-components',
+      {
+        ssr: false,
+      },
+    ],
     [
       'module-resolver',
       {
@@ -9,7 +14,7 @@ module.exports = {
           lib: './lib',
           pages: './pages',
           utils: './utils',
-          views: './views'
+          views: './views',
         },
         root: ['.'],
       },

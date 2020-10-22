@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { Container, IconProps } from './common';
 
-export function Typescript({ size = 'medium', styles, title = 'typescript', titleId = 'typescript' }: IconProps) {
+export function Typescript({
+  size = 'medium',
+  styles,
+  title = 'typescript',
+  titleId = 'typescript',
+}: IconProps): ReactElement {
   return (
     <Container ratio={1} size={size} styles={styles} title={title} titleId={titleId} viewBox="0 0 100 100">
       <rect width="90" height="90" transform="translate(5 5)" fill="white" />

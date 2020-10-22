@@ -1,18 +1,18 @@
-import { CSSProperties } from '@emotion/serialize';
-import React from 'react';
+import React, { ReactElement } from 'react';
+import styled, { CSSProperties } from 'styled-components';
 
-import styled from 'lib/styled';
-import { theme, Theme } from 'utils/theme';
+import { theme } from 'utils/theme';
 
 type StyledTextProps = {
   align?: 'left' | 'center' | 'right';
   bg?: keyof typeof theme.colors | 'transparent';
   color?: keyof typeof theme.colors;
   size?: 'small' | 'medium' | 'large';
+  styles?: CSSProperties;
   weight?: 'normal' | 'bold';
 };
 
-let StyledText = styled.p<StyledTextProps>(({ align, bg, color, size, theme, weight }) => {
+const StyledText = styled.p<StyledTextProps>(({ align, bg, color, size, styles, theme, weight }) => {
   const fontFamily = theme.fontFamilies[weight];
   const sizeValue = theme.textSizes[size];
 
@@ -27,13 +27,13 @@ let StyledText = styled.p<StyledTextProps>(({ align, bg, color, size, theme, wei
     fontSize: `${sizeValue}${theme.unit}`,
     lineHeight: `${sizeValue}${theme.unit}`,
     textAlign: align,
+    ...styles,
   };
 });
 
 type TextProps = {
   children: React.ReactNode;
   id?: string;
-  styles?: (theme: Theme) => CSSProperties;
 } & StyledTextProps;
 
 export function Text({
@@ -45,13 +45,9 @@ export function Text({
   size = 'medium',
   styles,
   weight = 'normal',
-}: TextProps) {
-  if (styles) {
-    StyledText = styled(StyledText)(({ theme }) => ({ ...styles(theme) }));
-  }
-
+}: TextProps): ReactElement {
   return (
-    <StyledText align={align} bg={bg} color={color} id={id} size={size} weight={weight}>
+    <StyledText align={align} bg={bg} color={color} id={id} size={size} styles={styles} weight={weight}>
       {children}
     </StyledText>
   );
