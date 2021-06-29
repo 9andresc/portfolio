@@ -38,7 +38,7 @@
     "eslint-plugin-react": "7.21.4",
     "eslint-plugin-react-hooks": "4.1.2",
     "husky": "4.3.0",
-    "jest": "26.5.3",
+    "jest": "27.0.6",
     "lint-staged": "10.4.2",
     "next-compose-plugins": "2.2.0",
     "npm-check-updates": "9.1.0",
