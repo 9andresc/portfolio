@@ -4,4 +4,4 @@
 [![codecov](https://codecov.io/gh/9andresc/portfolio/branch/master/graph/badge.svg)](https://codecov.io/gh/9andresc/portfolio)
 ![dependabot](https://api.dependabot.com/badges/status?host=github&repo=9andresc/portfolio)
 
-The codebase of my personal portfolio web page.
+The codebase of my personal portfolio.
